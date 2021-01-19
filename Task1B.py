@@ -7,9 +7,9 @@ def run():
 
     stations = build_station_list()  # Builds list of stations
 
-    stations_by_distance(stations, (52.2053, 0.1218))  # implement demonstration program
+    print(stations_by_distance(stations, (52.2053, 0.1218)))  # implement demonstration program
 
 
 if __name__ == "__main__":
-    print("*** Task 1B: CUED Part IB Flood Warning System ***")
+    print("*** Task 1B: CUED Part IA Flood Warning System ***")
     run()
