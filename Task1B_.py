@@ -10,7 +10,10 @@ def run():
 
     stations = build_station_list()  # Builds list of stations
 
-    print(stations_by_distance(stations, (52.2053, 0.1218)))  # implement demonstration program
+    # implement demonstration program
+    list = stations_by_distance(stations, (52.2053, 0.1218))
+    print(list[:10])
+    print(list[-10:])
 
 
 if __name__ == "__main__":
