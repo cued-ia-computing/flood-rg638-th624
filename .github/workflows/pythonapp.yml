@@ -4,14 +4,14 @@
 
 name: CUED Flood Warning CI
 
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        python-version: [3.8]
+        python-version: [ 3.8 ]
     timeout-minutes: 5
 
     steps:
