@@ -12,6 +12,9 @@ from .utils import sorted_by_key  # noqa
 
 
 def stations_by_distance(stations, p):
+    """Takes a list stations and creates a list of tuples including the station and
+     it's distance from a point, then sorts this list in order of distance"""
+
     distance_list = []  # create empty list
     for s in stations:  # iterate through list of stations
         distance = haversine(s.coord, p)  # calculate distance
