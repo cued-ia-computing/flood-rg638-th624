@@ -7,7 +7,6 @@ from floodsystem.station import MonitoringStation
 
 
 def test_create_monitoring_station():
-
     # Create a station
     s_id = "test-s-id"
     m_id = "test-m-id"
