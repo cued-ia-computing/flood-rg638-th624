@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="6b67134b-a553-4b52-916b-a9f2b6864461" name="Default Changelist" comment="donitagen" />
+    <list default="true" id="6b67134b-a553-4b52-916b-a9f2b6864461" name="Default Changelist" comment="fixed" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -138,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611276826825</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="fixed">
+      <created>1611315675641</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1611315675641</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -156,6 +163,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="donit" />
     <MESSAGE value="donitagen" />
-    <option name="LAST_COMMIT_MESSAGE" value="donitagen" />
+    <MESSAGE value="fixed" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed" />
   </component>
 </project>
