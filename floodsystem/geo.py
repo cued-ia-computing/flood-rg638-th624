@@ -28,7 +28,8 @@ def stations_within_radius(stations, centre, r):
     a radius of a coordinate"""
 
     list_of_stations = []  # create empty list
-    for s in stations_by_distance(stations, centre):  # iterate through a list of tuples as created in previous function
+    stations_list = stations_by_distance(stations, centre) # create list of tuples using previous function
+    for s in stations_list:  # iterate through
         if s[1] <= r:
             list_of_stations.append(s)  # add any stations within the radius to the empty list
     return list_of_stations  # return this list
