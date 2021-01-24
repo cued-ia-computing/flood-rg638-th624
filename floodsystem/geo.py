@@ -21,3 +21,13 @@ def stations_by_distance(stations, p):
         distance_tuple = (s, distance)  # create tuple
         distance_list.append(distance_tuple)  # add tuple to list
     return sorted_by_key(distance_list, 1)  # returns a list sorted by distance
+
+def stations_within_radius(stations, centre, r):
+    """Takes a list of stations and returns a list of the stations within
+    a radius of a coordinate"""
+
+    list_of_stations = []  # create empty list
+    for s in stations_by_distance(stations, centre):  # iterate through a list of tuples as created in previous function
+        if s[1] <= r:
+            list_of_stations.append(s)  # add any stations within the radius to the empty list
+    return list_of_stations  # return this list
