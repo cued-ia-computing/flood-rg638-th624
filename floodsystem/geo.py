@@ -33,3 +33,12 @@ def stations_within_radius(stations, centre, r):
         if s[1] <= r:
             list_of_stations.append(s)  # add any stations within the radius to the empty list
     return list_of_stations  # return this list
+
+
+def rivers_with_station(stations):
+    """Takes a list of stations and returns a set of the names of the rivers"""
+
+    set_of_rivers = {}
+    for n in stations:
+        set_of_rivers.append(n.river)
+
