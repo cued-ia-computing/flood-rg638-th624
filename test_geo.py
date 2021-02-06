@@ -44,5 +44,5 @@ def test_rivers_with_station():
     for n, river in enumerate(river_list):
         assert type(river) == str  # check it's full of strings
         if n > 0:
-            assert river not in river_list[:n-1]
-        assert river not in river_list[n+1:]
+            assert river not in river_list[:n - 1]
+        assert river not in river_list[n + 1:]
