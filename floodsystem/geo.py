@@ -28,8 +28,30 @@ def stations_within_radius(stations, centre, r):
     a radius of a coordinate"""
 
     list_of_stations = []  # create empty list
-    stations_list = stations_by_distance(stations, centre) # create list of tuples using previous function
+    stations_list = stations_by_distance(stations, centre)  # create list of tuples using previous function
     for s in stations_list:  # iterate through
         if s[1] <= r:
             list_of_stations.append(s)  # add any stations within the radius to the empty list
     return list_of_stations  # return this list
+
+
+def rivers_with_station(stations):
+    """Takes a list of stations and returns a set of the names of the rivers"""
+
+    set_of_rivers = set()  # create set (to avoid duplicates)
+    for s in stations:
+        set_of_rivers.add(s.river)  # add rivers to set
+    return sorted(set_of_rivers)  # turns set back to list
+
+
+def stations_by_river(stations):
+    """Takes a list of stations and returns a dictionary that maps river names to a list of stations on a given river"""
+
+    river_dict = {}
+    for n in rivers_with_station(stations):
+        river_stations = []
+        for m in stations:
+            if m.river == n:
+                river_stations.append(m.name)
+        river_dict[n] = river_stations
+    return (river_dict)
