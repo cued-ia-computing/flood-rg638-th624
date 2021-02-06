@@ -11,7 +11,7 @@ def run():
     print("first 10 rivers alphabetically: ")
     print(rivers_with_station(station_list)[:10])  # prints first 10 items in list (list is already sorted)
     print("stations on River Aire: ")
-    print(sorted(stations_by_river(station_list)["River Aire"]))  # prints alphabetical list of the dictionary value for river key
+    print(sorted(stations_by_river(station_list)["River Aire"]))
     print("stations on River Cam: ")
     print(sorted(stations_by_river(station_list)["River Cam"]))
     print("stations on River Thames: ")
