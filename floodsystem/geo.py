@@ -41,4 +41,17 @@ def rivers_with_station(stations):
     set_of_rivers = set()  # create set (to avoid duplicates)
     for s in stations:
         set_of_rivers.add(s.river)  # add rivers to set
-    return sorted(set_of_rivers)
+    return sorted(set_of_rivers)  # turns set back to list
+
+
+def stations_by_river(stations):
+    """Takes a list of stations and returns a dictionary that maps river names to a list of stations on a given river"""
+
+    river_dict = {}
+    for n in rivers_with_station(stations):
+        river_stations = []
+        for m in stations:
+            if m.river == n:
+                river_stations.append(m.name)
+        river_dict[n] = river_stations
+    return(river_dict)
