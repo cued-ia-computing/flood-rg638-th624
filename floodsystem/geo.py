@@ -54,4 +54,4 @@ def stations_by_river(stations):
             if m.river == n:
                 river_stations.append(m.name)
         river_dict[n] = river_stations
-    return(river_dict)
+    return (river_dict)
