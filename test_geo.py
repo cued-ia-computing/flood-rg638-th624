@@ -33,6 +33,7 @@ def test_stations_within_radius():
         # check they are actually within radius
         assert n[1] <= 10
 
+
 def test_rivers_with_station():
     """Test rivers with station function"""
 
@@ -44,4 +45,3 @@ def test_rivers_with_station():
         assert type(n) == str  # check it's full of strings
         for m in river_set:
             assert n != m  # check for duplicates
-
