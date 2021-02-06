@@ -38,9 +38,9 @@ def stations_within_radius(stations, centre, r):
 def rivers_with_station(stations):
     """Takes a list of stations and returns a set of the names of the rivers"""
 
-    set_of_rivers = set()
+    set_of_rivers = set()  # create set (to avoid duplicates)
     for s in stations:
-        set_of_rivers.add(s.river)
+        set_of_rivers.add(s.river)  # add rivers to set
     return set_of_rivers
 
 

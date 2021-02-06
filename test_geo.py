@@ -32,3 +32,16 @@ def test_stations_within_radius():
         assert type(n[1]) == float
         # check they are actually within radius
         assert n[1] <= 10
+
+def test_rivers_with_station():
+    """Test rivers with station function"""
+
+    stations = floodsystem.stationdata.build_station_list()
+    river_set = floodsystem.geo.rivers_with_station(stations)
+
+    assert type(river_set) == set  # check a set is returned
+    for n in river_set:
+        assert type(n) == str  # check it's full of strings
+        for m in river_set:
+            assert n != m  # check for duplicates
+
