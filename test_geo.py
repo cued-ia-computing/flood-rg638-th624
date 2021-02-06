@@ -46,3 +46,14 @@ def test_rivers_with_station():
         if n > 0:
             assert river not in river_list[:n - 1]
         assert river not in river_list[n + 1:]
+
+
+def test_stations_by_river():
+    """Test stations by river function"""
+
+    stations = floodsystem.stationdata.build_station_list()
+    river_dict = floodsystem.geo.stations_by_river(stations)
+
+    assert type(river_dict) == dict
+    for n in river_dict:
+        assert type(river_dict[n]) == list
