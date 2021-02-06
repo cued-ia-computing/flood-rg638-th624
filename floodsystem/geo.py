@@ -41,4 +41,4 @@ def rivers_with_station(stations):
     set_of_rivers = set()  # create set (to avoid duplicates)
     for s in stations:
         set_of_rivers.add(s.river)  # add rivers to set
-    return set_of_rivers
+    return sorted(set_of_rivers)

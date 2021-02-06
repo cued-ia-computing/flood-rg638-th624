@@ -38,10 +38,11 @@ def test_rivers_with_station():
     """Test rivers with station function"""
 
     stations = floodsystem.stationdata.build_station_list()
-    river_set = floodsystem.geo.rivers_with_station(stations)
+    river_list = floodsystem.geo.rivers_with_station(stations)
 
-    assert type(river_set) == set  # check a set is returned
-    for n in river_set:
-        assert type(n) == str  # check it's full of strings
-        for m in river_set:
-            assert n != m  # check for duplicates
+    assert type(river_list) == list  # check a set is returned
+    for n, river in enumerate(river_list):
+        assert type(river) == str  # check it's full of strings
+        if n > 0:
+            assert river not in river_list[:n-1]
+        assert river not in river_list[n+1:]
