@@ -54,4 +54,36 @@ def stations_by_river(stations):
             if m.river == n:
                 river_stations.append(m.name)
         river_dict[n] = river_stations
-    return (river_dict)
+    return river_dict
+
+
+def rivers_by_num_of_stations(stations, N):
+    """ Returns a list of tuples containing the name of a river and number of monitoring stations on that river for the
+    N rivers with the greatest amount of monitoring stations, sorted in decreasing order of number of stations """
+
+    rivers_with_number = []
+    for river in rivers_with_station(stations):  # Iterates through the full list of rivers with a monitoring station
+        station_counter = 0
+        for monitoring_station in stations:
+            if monitoring_station.river == river:
+                station_counter += 1  # Iterates through full station list and counts number of times each river appears
+        rivers_with_number.append((river, station_counter))
+    complete_list = sorted_by_key(rivers_with_number, 1)
+    complete_list.reverse()
+    shortened_list = complete_list[:N]
+
+    # If the station_counter value for the (N+i)th term in the list is the same as the value for the Nth term
+    # It will also be included in the list
+
+    for i in range(len(complete_list) - N):
+        # The Nth term in the list is given by the (N-1)th index
+        if complete_list[N-1][1] == complete_list[N + i][1]:
+            shortened_list.append(i)
+        # The for loop is broken early once the (N+i)th station value is no longer equal to the Nth value
+        elif complete_list[N-1][1] != complete_list[N + i][1]:
+            break
+
+    return shortened_list
+
+
+
