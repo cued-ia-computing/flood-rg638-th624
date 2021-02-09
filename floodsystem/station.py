@@ -40,11 +40,9 @@ class MonitoringStation:
 
     # Check if typical range data is inconsistent or unavailable
     def typical_range_consistent(self):
-        range_high = self.typical_range[1]
-        range_low = self.typical_range[0]
-        if range_low > range_high:
+        if self.typical_range is None:
             return False
-        elif range_low is None or range_high is None:
+        elif self.typical_range[0] > self.typical_range[1]:
             return False
         else:
             return True
@@ -58,5 +56,6 @@ def inconsistent_typical_range_stations(stations):
             pass
         elif not station.typical_range_consistent():
             inconsistent_stations.append(station)
+    return inconsistent_stations
 
 
