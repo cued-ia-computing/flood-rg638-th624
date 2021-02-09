@@ -83,3 +83,4 @@ def test_rivers_by_num_of_stations():
         # Checks descending order
 
         assert river_list_1[0][1] > river_list_1[-1][1]
+

@@ -8,7 +8,7 @@ def run():
     inconsistent_station_objects = inconsistent_typical_range_stations(stations)
     inconsistent_station_names = []
     for station in inconsistent_station_objects:
-        inconsistent_station_names.append(station.name)
+        inconsistent_station_names.append(station.name)  # Maps name for each station object to a new list of only names
     inconsistent_station_names.sort()
     print(inconsistent_station_names)
 

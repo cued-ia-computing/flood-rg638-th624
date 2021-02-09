@@ -7,7 +7,6 @@ geographical data.
 """
 
 from haversine import haversine  # for calculating distance between points
-
 from .utils import sorted_by_key  # noqa
 
 
