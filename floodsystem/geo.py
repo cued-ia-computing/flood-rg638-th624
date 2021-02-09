@@ -78,7 +78,7 @@ def rivers_by_num_of_stations(stations, N):
     for i in range(len(complete_list) - N):
         # The Nth term in the list is given by the (N-1)th index
         if complete_list[N-1][1] == complete_list[N + i][1]:
-            shortened_list.append(i)
+            shortened_list.append(complete_list[N+i])
         # The for loop is broken early once the (N+i)th station value is no longer equal to the Nth value
         elif complete_list[N-1][1] != complete_list[N + i][1]:
             break
