@@ -36,4 +36,3 @@ def test_inconsistent_typical_range():
     # Checks that typical range data for any station object in the produced list is either unavailable or inconsistent
     for station in test_list:
         assert station.typical_range is None or station.typical_range[0] > station.typical_range[1]
-
