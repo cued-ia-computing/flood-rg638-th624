@@ -102,7 +102,7 @@ def plot_stations_by_location(stations):
         x.append(lon2x(station.coord[1]))
         y.append(lat2y(station.coord[0]))
 
-    p.circle_dot(x, y)
+    p.circle_dot(x, y, color='green')
     show(p)
 
 
