@@ -5,9 +5,11 @@
 geographical data.
 
 """
-
+from bokeh.tile_providers import get_provider, Vendors
 from haversine import haversine  # for calculating distance between points
 from .utils import sorted_by_key  # noqa
+from bokeh.plotting import figure, output_file, show
+from converter import lat2y, lon2x
 
 
 def stations_by_distance(stations, p):
@@ -83,6 +85,26 @@ def rivers_by_num_of_stations(stations, N):
             break
 
     return shortened_list
+
+
+def plot_stations_by_location(stations):
+    """Plots the locations of floodstations as points on a map"""
+    p = figure(x_range=(-1100000, 300000), y_range=(6300000, 8200000),
+               x_axis_type="mercator", y_axis_type="mercator")
+    output_file("tile.html")
+    tile_provider = get_provider(Vendors.CARTODBPOSITRON)
+    p.add_tile(tile_provider)
+
+    x = []
+    y = []
+
+    for station in stations:
+        x.append(lon2x(station.coord[1]))
+        y.append(lat2y(station.coord[0]))
+
+    p.circle_dot(x, y)
+    show(p)
+
 
 
 
