@@ -57,7 +57,7 @@ def stations_by_river(stations):
     return river_dict
 
 
-def rivers_by_num_of_stations(stations, N):
+def rivers_by_station_number(stations, N):
     """ Returns a list of tuples containing the name of a river and number of monitoring stations on that river for the
     N rivers with the greatest amount of monitoring stations, sorted in decreasing order of number of stations """
 
