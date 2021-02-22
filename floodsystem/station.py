@@ -37,3 +37,11 @@ class MonitoringStation:
         d += "   river:         {}\n".format(self.river)
         d += "   typical range: {}".format(self.typical_range)
         return d
+
+    def relative_water_level(self):
+        relative_level = (self.latest_level / self.typical_range)
+        if type(relative_level) == float:
+            return relative_level
+        else:
+            return None
+
