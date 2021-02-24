@@ -37,3 +37,13 @@ def test_inconsistent_typical_range():
     # Checks that typical range data for any station object in the produced list is either unavailable or inconsistent
     for station in test_list:
         assert station.typical_range is None or station.typical_range[0] > station.typical_range[1]
+
+
+def test_relative_water_level():
+    """Tests the relative water level function"""
+
+    test_list = inconsistent_typical_range_stations(build_station_list())
+    for station in test_list:
+        assert MonitoringStation.relative_water_level(station) is None
+        if station.latest_level is None:
+            assert MonitoringStation.relative_water_level(station) is None
