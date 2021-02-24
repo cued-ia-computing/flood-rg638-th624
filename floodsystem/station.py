@@ -6,7 +6,6 @@ for manipulating/modifying station data
 
 """
 
-
 class MonitoringStation:
     """This class represents a river level monitoring station"""
 
@@ -48,9 +47,10 @@ class MonitoringStation:
             return True
         
     def relative_water_level(self):
-        relative_level = (self.latest_level / self.typical_range)
-        if type(relative_level) == float:
-            return relative_level
+        """returns the latest water level as a fraction of the typical range"""
+
+        if self.typical_range_consistent() and self.latest_level:  # checks data is consistent and latest level exists
+            return self.latest_level / (self.typical_range[1] - self.typical_range[0])
         else:
             return None
 
