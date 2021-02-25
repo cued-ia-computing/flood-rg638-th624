@@ -1,7 +1,6 @@
-from floodsystem.flood import stations_level_over_threshold, stations_highest_rel_level
-import floodsystem.stationdata
 import floodsystem.station
-
+import floodsystem.stationdata
+from floodsystem.flood import stations_level_over_threshold, stations_highest_rel_level
 
 
 def test_stations_level_over_threshold():
