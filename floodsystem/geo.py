@@ -87,7 +87,7 @@ def rivers_by_station_number(stations, N):
     return shortened_list
 
 
-def plot_stations_by_location(stations):
+def plot_stations_by_location(stations, colour='green'):
     """Plots the locations of floodstations as points on a map"""
     p = figure(x_range=(-1100000, 300000), y_range=(6300000, 8200000),
                x_axis_type="mercator", y_axis_type="mercator")
@@ -102,7 +102,7 @@ def plot_stations_by_location(stations):
         x.append(lon2x(station.coord[1]))
         y.append(lat2y(station.coord[0]))
 
-    p.circle_dot(x, y, color='green')
+    p.circle_dot(x, y, color=colour)
     show(p)
 
 
