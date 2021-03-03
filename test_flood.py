@@ -3,6 +3,8 @@ import floodsystem.stationdata
 from floodsystem.flood import stations_level_over_threshold, stations_highest_rel_level, \
     predict_future_level, rate_of_water_rise
 import random
+from floodsystem.datafetcher import fetch_measure_levels
+import datetime
 
 
 def test_stations_level_over_threshold():
@@ -36,7 +38,13 @@ def test_predict_future_level():
     floodsystem.stationdata.update_water_levels(stations)
     for i in range(5):
         station = stations[random.randint(1, 1000)]  # selects random floodstation
+        dates = fetch_measure_levels(station.measure_id, datetime.timedelta(days=2))[0]
+
+        # ignoring incomplete data
         if rate_of_water_rise(station) is None:
+            continue
+
+        elif dates is None or len(dates) == 0:
             continue
 
         # if the rate of change is positive then the future level should be greater than the current level
