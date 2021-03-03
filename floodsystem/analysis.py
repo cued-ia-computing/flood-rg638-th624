@@ -1,11 +1,12 @@
 import numpy as np
-import matplotlib.dates as dts
+import matplotlib.dates as mdates
 
 
 def polyfit(dates, levels, p):
-    x = dts.date2num(dates)
+    """Fits a polynomial of degree p to water level and datetime data"""
+    x = mdates.date2num(dates)
     y = levels
     poly_coeff = np.polyfit(x - x[0], y, p)
     poly = np.poly1d(poly_coeff)
-    d0 = x - x[0]
+    d0 = x[0]
     return poly, d0
