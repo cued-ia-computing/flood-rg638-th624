@@ -29,7 +29,7 @@ def run():
             continue
 
         # provides a default value for stations with unreliable current instantaneous change values
-        if abs((current_instantaneous_change/current_level)) > 0.5:
+        if abs((current_instantaneous_change / current_level)) > 0.5:
             predicted_level = current_level
 
         else:
