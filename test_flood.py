@@ -1,6 +1,8 @@
 import floodsystem.station
 import floodsystem.stationdata
-from floodsystem.flood import stations_level_over_threshold, stations_highest_rel_level
+from floodsystem.flood import stations_level_over_threshold, stations_highest_rel_level, \
+    predict_future_level, rate_of_water_rise
+import random
 
 
 def test_stations_level_over_threshold():
@@ -27,7 +29,27 @@ def test_stations_highest_rel_level():
         assert type(test_list[i]) == floodsystem.station.MonitoringStation
 
 
-def test_predict_future_level:
+def test_predict_future_level():
     """Test the predict future level function"""
+
+    stations = floodsystem.stationdata.build_station_list()
+    floodsystem.stationdata.update_water_levels(stations)
+    for i in range(5):
+        station = stations[random.randint(1, 1000)]  # selects random floodstation
+        if rate_of_water_rise(station) is None:
+            continue
+
+        # if the rate of change is positive then the future level should be greater than the current level
+        elif rate_of_water_rise(station) > 0:
+            assert(predict_future_level(station, 5) > station.latest_level)
+
+        # if the rate of change is negative then the future level should be greater than the current level
+        elif rate_of_water_rise(station) < 0:
+            assert(predict_future_level(station, 5) < station.latest_level)
+
+        else:
+            continue
+
+
 
 
