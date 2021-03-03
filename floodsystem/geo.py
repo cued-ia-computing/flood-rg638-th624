@@ -87,7 +87,9 @@ def rivers_by_station_number(stations, N):
     return shortened_list
 
 
-def plot_stations_by_location(stations, colour='green'):
+def plot_stations_by_location(data1, colour1='palegoldenrod', data2=None, colour2='fuchsia', data3=None,
+                              colour3='lime', data4=None, colour4='cyan', label1='undefined1',
+                              label2='undefined2', label3='undefined3', label4='undefined4'):
     """Plots the locations of floodstations as points on a map"""
     p = figure(x_range=(-1100000, 300000), y_range=(6300000, 8200000),
                x_axis_type="mercator", y_axis_type="mercator")
@@ -95,14 +97,39 @@ def plot_stations_by_location(stations, colour='green'):
     tile_provider = get_provider(Vendors.CARTODBPOSITRON)
     p.add_tile(tile_provider)
 
-    x = []
-    y = []
+    x1 = []
+    y1 = []
 
-    for station in stations:
-        x.append(lon2x(station.coord[1]))
-        y.append(lat2y(station.coord[0]))
+    for a in data1:
+        x1.append(lon2x(a.coord[1]))
+        y1.append(lat2y(a.coord[0]))
 
-    p.circle_dot(x, y, color=colour)
+    p.circle_dot(x1, y1, color=colour1, legend_label=label1)
+
+    if data2 is not None:
+        x2 = []
+        y2 = []
+        for b in data2:
+            x2.append(lon2x(b.coord[1]))
+            y2.append(lat2y(b.coord[0]))
+        p.circle_dot(x2, y2, color=colour2, legend_label=label2)
+
+    if data3 is not None:
+        x3 = []
+        y3 = []
+        for c in data3:
+            x3.append(lon2x(c.coord[1]))
+            y3.append(lat2y(c.coord[0]))
+        p.circle_dot(x3, y3, color=colour3, legend_label=label3)
+
+    if data4 is not None:
+        x4 = []
+        y4 = []
+        for d in data4:
+            x4.append(lon2x(d.coord[1]))
+            y4.append(lat2y(d.coord[0]))
+        p.circle_dot(x4, y4, color=colour4, legend_label=label4)
+
     show(p)
 
 
