@@ -1,7 +1,6 @@
 from floodsystem.stationdata import build_station_list
 from floodsystem.geo import plot_stations_by_location
 from floodsystem.stationdata import update_water_levels
-from floodsystem.flood import stations_highest_rel_level
 
 
 def run():
