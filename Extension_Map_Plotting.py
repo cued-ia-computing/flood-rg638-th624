@@ -34,7 +34,6 @@ def run():
                               label4='No water level data')
 
 
-
 if __name__ == "__main__":
-    print("*** Extension Task Milestone 1: CUED Part IA Flood Warning System ***")
+    print("*** Extension Task Milestone 2: CUED Part IA Flood Warning System ***")
     run()
