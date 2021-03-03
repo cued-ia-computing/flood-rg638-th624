@@ -49,7 +49,3 @@ def test_predict_future_level():
 
         else:
             continue
-
-
-
-
