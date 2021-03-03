@@ -2,6 +2,7 @@ import matplotlib.pyplot as plt
 from floodsystem.analysis import polyfit
 import matplotlib.dates as mdates
 
+
 def plot_water_levels(station, dates, levels):
     """Given a station object and the corresponding lists of dates and water levels for that station,
     plots the water level against the dates, along with the typical high and low water levels for
