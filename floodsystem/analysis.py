@@ -12,3 +12,4 @@ def polyfit(dates, levels, p):
     poly = np.poly1d(poly_coeff)
     d0 = x[-1]
     return poly, d0
+

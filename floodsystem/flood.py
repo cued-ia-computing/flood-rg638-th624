@@ -4,6 +4,7 @@ from floodsystem.analysis import polyfit
 import matplotlib.dates as mdates
 import datetime
 import numpy as np
+from floodsystem.stationdata import build_station_list
 
 
 def stations_level_over_threshold(stations, tol):
@@ -33,12 +34,23 @@ def stations_highest_rel_level(stations, N):
 def rate_of_water_rise(station, p=4):
     """Estimates the instantaneous rate of water rise for a given station using the derivative of the
     fitted polynomial (of degree p) for the station's water level-time data over the last 2 days"""
+
     dates, levels = fetch_measure_levels(station.measure_id, datetime.timedelta(days=2))
-    poly, d0 = polyfit(dates, levels, p)
-    derivative = np.polyder(poly)
-    print(derivative)
-    print(mdates.date2num(dates[-1]))
-    print(d0)
-    print(mdates.date2num(dates[-1])-d0)
-    current_instantaneous_rate = derivative(mdates.date2num(dates[0])-d0)
+    poly, d0 = polyfit(dates, levels, p)  # obtains the fitted polynomial
+    derivative = np.polyder(poly)  # differentiates the polynomial
+
+    # evaluates the derivative at the most recent time point
+    current_instantaneous_rate = derivative(mdates.date2num(dates[0]) - d0)
+
     return current_instantaneous_rate
+
+
+def predict_future_level(station, days, p=4):
+    """Predicts the water level at a given station in a specified number of days, using the current
+     instantaneous rate of change of water level"""
+
+    current_instantaneous_rate = rate_of_water_rise(station, p)
+    current_level = fetch_measure_levels(station.measure_id, datetime.timedelta(days=2))[1][0]
+    predicted_level = current_level + current_instantaneous_rate * days  # extrapolates the data to the specified day
+    return predicted_level
+

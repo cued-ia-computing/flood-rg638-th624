@@ -7,6 +7,7 @@ def plot_water_levels(station, dates, levels):
     """Given a station object and the corresponding lists of dates and water levels for that station,
     plots the water level against the dates, along with the typical high and low water levels for
     that station"""
+
     typical_high_list = []
     typical_low_list = []
     for i in range(len(dates)):
@@ -28,6 +29,7 @@ def plot_water_levels(station, dates, levels):
 def plot_water_level_with_fit(station, dates, levels, p):
     """Plots the water level against time, with the typical high, typical low and fitted polynomial of
     degree p also shown on the same plot"""
+
     poly, d0 = polyfit(dates, levels, p)
     poly_output = []
     for date in dates:

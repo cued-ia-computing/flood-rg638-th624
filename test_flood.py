@@ -25,3 +25,9 @@ def test_stations_highest_rel_level():
     assert len(test_list) == 20
     for i in range(len(test_list)):
         assert type(test_list[i]) == floodsystem.station.MonitoringStation
+
+
+def test_predict_future_level:
+    """Test the predict future level function"""
+
+
