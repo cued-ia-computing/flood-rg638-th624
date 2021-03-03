@@ -4,7 +4,6 @@ from floodsystem.analysis import polyfit
 import matplotlib.dates as mdates
 import datetime
 import numpy as np
-from floodsystem.stationdata import build_station_list
 
 
 def stations_level_over_threshold(stations, tol):
@@ -53,4 +52,3 @@ def predict_future_level(station, days, p=4):
     current_level = fetch_measure_levels(station.measure_id, datetime.timedelta(days=2))[1][0]
     predicted_level = current_level + current_instantaneous_rate * days  # extrapolates the data to the specified day
     return predicted_level
-
