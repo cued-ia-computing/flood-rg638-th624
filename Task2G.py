@@ -52,7 +52,7 @@ def run():
         else:
             risk_factor = 'low'
 
-        final_list.append([station.name, risk_factor, quantitative_risk])
+        final_list.append([station.town, risk_factor, quantitative_risk])
 
     # the list is sorted in decreasing order of quantitative risk
     final_list.sort(key=lambda x: x[2])
@@ -62,9 +62,9 @@ def run():
     for station in final_list:
         station.pop(2)
 
-    print('Flood stations at highest risk:')
+    print('Towns at highest risk:')
     for i in final_list:
-        print(f'Station: {i[0]}, Risk Level: {i[1]}')
+        print(f'Town: {i[0]}, Risk Level: {i[1]}')
 
 
 if __name__ == "__main__":
