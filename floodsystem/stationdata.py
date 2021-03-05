@@ -6,8 +6,8 @@ JSON objects fetched from the Internet and
 
 """
 
-from . import datafetcher
-from .station import MonitoringStation
+from floodsystem import datafetcher
+from floodsystem.station import MonitoringStation
 
 
 def build_station_list(use_cache=True):
@@ -17,7 +17,6 @@ def build_station_list(use_cache=True):
 
     The available data for some station is incomplete or not
     available.
-
     """
 
     # Fetch station data
@@ -44,7 +43,7 @@ def build_station_list(use_cache=True):
             typical_range = None
 
         try:
-            # Create mesure station object if all required data is
+            # Create measure station object if all required data is
             # available, and add to list
             s = MonitoringStation(
                 station_id=e['@id'],

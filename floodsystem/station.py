@@ -12,7 +12,6 @@ class MonitoringStation:
 
     def __init__(self, station_id, measure_id, label, coord, typical_range,
                  river, town):
-
         self.station_id = station_id
         self.measure_id = measure_id
 
@@ -38,3 +37,31 @@ class MonitoringStation:
         d += "   river:         {}\n".format(self.river)
         d += "   typical range: {}".format(self.typical_range)
         return d
+
+    # Check if typical range data is inconsistent or unavailable
+    def typical_range_consistent(self):
+        if self.typical_range is None:
+            return False
+        elif self.typical_range[0] > self.typical_range[1]:
+            return False
+        else:
+            return True
+        
+    def relative_water_level(self):
+        """returns the latest water level as a fraction of the typical range"""
+
+        if self.typical_range_consistent() and self.latest_level:  # checks data is consistent and latest level exists
+            return (self.latest_level - self.typical_range[0]) / (self.typical_range[1] - self.typical_range[0])
+        else:
+            return None
+
+
+def inconsistent_typical_range_stations(stations):
+    """Given a list of station objects, returns a list of stations that have inconsistent data"""
+    inconsistent_stations = []
+    for station in stations:
+        if station.typical_range_consistent():
+            pass
+        elif not station.typical_range_consistent():
+            inconsistent_stations.append(station)
+    return inconsistent_stations
